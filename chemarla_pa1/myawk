@@ -1,0 +1,23 @@
+#Vibhav Chemarla
+#cs2750 PA1
+#date 02/07/2018
+
+
+BEGIN{ print "<<Start of file>>"}{
+
+for (j =3; j<=5; j++){
+
+	if( j==NR){
+	printf "%d: ",NR
+	
+	for(i=NF;i>=1;i--)
+		{printf "%s ",$i}
+		printf "\n"
+		N=N+NF
+		}
+}
+	
+}
+
+
+END { print "<< End of file: wordCount = ",N," >>" }

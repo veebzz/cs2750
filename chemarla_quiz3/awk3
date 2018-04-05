@@ -1,0 +1,14 @@
+BEGIN {print "<<start of file>>"}{
+
+	for(j=0;j<=NR;j++){
+		if(j == NR){
+			for(i=1;i<=NF;i++){
+	          	 printf $i
+		  	 printf " "
+			 }
+		 }
+	}
+	printf "\n"
+}
+	
+END { print "<<end of file>>" }	

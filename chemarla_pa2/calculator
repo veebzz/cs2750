@@ -1,0 +1,51 @@
+#!/bin/bash
+#Vibhav Chemarla
+#cs2750 PA 2
+#date 26/02/2018
+
+
+
+if (( $# < 3 ));
+then
+	echo "User Error: too few parameter"
+	echo " pass in a/s/m/d number number"
+	exit 0
+fi
+
+add(){
+total=$(($1 +$2));
+echo $total;
+}
+
+sub(){
+total=$(($1 -$2));
+echo $total;
+}
+
+mul(){
+total=$(($1 *$2));
+echo $total;
+}
+
+div(){
+total=$(($1 /$2));
+echo $total;
+}
+
+if [[ "$1" = "a" ]];then
+	add $2 $3
+	exit 0
+elif [[ "$1" = "s" ]];then
+	sub $2 $3
+	exit 0
+elif [[ "$1" = "m" ]];then
+	mul $2 $3
+	exit 0
+elif [[ "$1" = "d" ]];then
+	div $2 $3
+	exit 0
+else
+	echo "Error: Invalid parameter passed"
+	exit 1
+fi
+

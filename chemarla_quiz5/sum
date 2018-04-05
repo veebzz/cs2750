@@ -1,0 +1,15 @@
+#!/bin/bash
+
+x=$1
+y=$2
+sum=$((x + y))
+
+echo "$x + $y = $sum"
+
+if (($sum % 2 == 0))
+then
+	echo "sum is even"
+elif (($sum % 2 != 0))
+then
+	echo "sum is odd"
+fi

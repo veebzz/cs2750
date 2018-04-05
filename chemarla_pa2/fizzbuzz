@@ -1,0 +1,20 @@
+#!/bin/bash
+#Vibhav Chemarla
+#cs2750 PA 2
+#date 25/02/2018
+n=${1:-20}
+
+
+for ((i=1; i<=$n; i++)){
+   if (( $i % 3 == 0 && $i % 5 ==0))
+   then echo "$i FizzBuzz"
+   elif(($i % 3 == 0))
+   then echo "$i Fizz"
+   elif(($i % 5 == 0))
+   then echo "$i Buzz"
+   else
+   echo $i
+   fi
+
+}
+

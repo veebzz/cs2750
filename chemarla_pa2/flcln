@@ -1,0 +1,24 @@
+#!/bin/bash
+#Vibhav Chemarla
+#cs2750 PA 2
+#date 25/02/2018
+x=${1:-'.'}
+
+find $x -type f | sed -e 's/.*\.//' | sed -e 's/.*\///' | sort -n
+
+emptyCheck=$(find $x -empty -type f | wc -l)
+if (( "$emptyCheck" > 0 ));
+	then
+	echo "Empty files found: $emptyCheck"
+	find $x -empty -type f
+	echo "Do you want to delete files(y/n)"
+	read yno
+	if echo "$yno" | grep -iq "^y";
+	then 
+        	find $x -empty -type f -delete
+		echo "Files deleted"
+	elif echo "$yno" | grep -iq "^n";
+	then
+		echo "User chose to not delete files"
+	fi
+fi

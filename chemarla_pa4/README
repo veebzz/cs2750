@@ -1,0 +1,23 @@
+//PA 4 README file
+
+Problem 1: deater
+The deater program is two-part program.
+The program accepts strings and intergers as arguments. The program has 2 tasks. 
+1) Find and add all the integers in the passed arugments and display the total.
+2) Identify a string, check to see if it is a substring 
+of a future string in the passed arguments, and then display the event.
+How to use:
+example:
+
+deater 5 2 8 dog cat dogc dogcat 7 10 15
+
+Problem 2: phone
+The phone program reformats given arguments and outputs a formatted phone number.
+The program goes through the passed arguments and only identifies the first 10 numbers.
+If less than 10 numbers were passed, the program ends.
+The program takes the 10 numbers and outputs them in (xxx) xxx-xxxx format.
+
+How to use:
+example:
+
+phone abc123-456-7890
