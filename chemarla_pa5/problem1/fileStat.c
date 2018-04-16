@@ -41,34 +41,17 @@ int main(int argc, char *argv[]){
 				}
 			}
 		}
-		else	
+		else if(!filep)	
 		{
 			char str[100];
-			printf("Failed to open file\n");
+			printf("Failed to find/open file\n");
 			printf("Enter a sentence: ");
 			fgets(str, sizeof(str), stdin);
 		
-			printf("charcount:  %d\n", count_nonspace(str));
-			printf("wcount: %d\n", count_word(str));
-		//	for(int i = 0; i < strlen(p); i++){
-		//		if(isspace(p[i])){
-		//			continue;
-		//		}
-		//		else if(isaplha(p[i])){
-		//			charCount++;
-		//		}
-		//		else if(!isspace(p[i])&& isspace(p[i-1])){
-		//			wordCount++;
-		//		}
-				
-			
-		//	}
-		//	lineCount =1;
-			 //printf("Characters: %d \n",charCount);
-			// printf("Words: %d \n", wordCount);
-			// printf("Lines: %d \n", lineCount);
-			// return 0;
-			break;
+			printf("Characters:  %d\n", count_nonspace(str));
+			printf("Words: %i\n", count_word(str));
+			printf("Lines: 1\n");
+			return 0;
 				
 		}
 	}
@@ -76,7 +59,7 @@ int main(int argc, char *argv[]){
 	printf("Characters: %d \n",charCount);
 	printf("Words: %d \n", wordCount);
 	printf("Lines: %d \n", lineCount);
-	getchar();
+	
 	
 	return 0;
 
@@ -91,12 +74,23 @@ int count_nonspace(const char* str){
 	}
 		return ccount;
 }
+
 int count_word(const char* str){
 	int wcount = 0;
-	while(*str){
-		if(isspace(*str) && !isspace(*str++)){
-		wcount++;
+	int len = 0;
+	char lastC;
+	len = strlen(str);
+	if(len > 0)
+	{
+		lastC = str[0];
+	}
+	for (int i = 0; i <= len; i++){
+		if((str[i]==' ' || str[i] == '\0'|| str[i] == '\t') && lastC != ' ')
+		{
+			wcount++;
 		}
+		lastC = str[i];
 	}
 	return wcount;
-}	
+}
+
