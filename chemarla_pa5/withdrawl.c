@@ -10,7 +10,7 @@
 void withdrawl(Account *aptr){
 
 	int input, count=0;
-	double withdrawl;
+	float withdrawl;
 
 	fptr= fopen("accounts.dat", "rb+");
 	printf("Enter account number for withdrawl: ");

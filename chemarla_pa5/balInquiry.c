@@ -15,13 +15,13 @@ void balInquiry(Account *aptr){
 	scanf("%d", &input);
 
 	fptr = fopen("accounts.dat", "rb+");
-	for(int i = 0l i < 51; i++){
+	for(int i = 0; i < 51; i++){
 		fread(&aptr[i], sizeof(Account), 1, fptr);
 		if(aptr[i].accId == input){
 			count++;
 
 			printf("Account found\n");
-			printf("Account Owner: %s %s %s\n", aptr[i].fName, aptr[i].mName, aptr[i].lName):
+			printf("Account Owner: %s %s %s\n", aptr[i].fName, aptr[i].mName, aptr[i].lName);
 			printf("Balance: $%.2f\n", aptr[i].accBal);
 			fclose(fptr);
 		}

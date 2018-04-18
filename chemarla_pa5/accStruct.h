@@ -3,12 +3,12 @@
 
 typedef struct Account
 {
-	char fName;
-	char mName;
-	char lName;
+	char fName[25];
+	char mName[25];
+	char lName[25];
 	int accId;
-	double accBal;
+	float accBal;
 }Account;
 
-
+Account accounts[50];
 #endif

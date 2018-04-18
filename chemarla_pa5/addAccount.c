@@ -6,12 +6,14 @@
 #include "accStruct.h"
 #include "ams.h"
 #include "addAccount.h"
+#include "stdio.h"
 
 void addAccount(Account *aptr)
 {
 	int input;
 	char fName,mName,lName;
-	double accBal;
+	float accBal;
+	FILE *fptr;
 
 	fptr = fopen("accounts.dat", "wb");
 	if (fptr);
@@ -27,7 +29,7 @@ void addAccount(Account *aptr)
 			for(int j=0; j < i; j++){
 				if(input == aptr[j].accId){
 					printf("Account already registered!\n");
-					return 0;
+			
 				}
 			}
 
@@ -39,20 +41,20 @@ void addAccount(Account *aptr)
 				//First name input
 				aptr[i].accId= input;
 				printf("\nFirst Name: ");
-				scanf("%s", &fName);
+				sscanf("%s", &fName);
 				strcpy(aptr[i].fName, fName);
 				//Middle name input
 				printf("\nMiddle Name: ");
-				scanf("%s", &mName);
+				sscanf("%s", &mName);
 				strcpy(aptr[i].mName, mName);
 				//Last name input
 				printf("\nLast Name: ");
-				scanf("%s", &lName);
+				sscanf("%s", &lName);
 				strcpy(aptr[i].lName, lName);
 				//Account balance input
 				printf("\nAccount Name: ");
-				scanf("%s", &accBal);
-				strcpy(aptr[i].accBal, accBal);
+				scanf("%f", &accBal);
+				aptr[i].accBal = accBal;
 				
 				fwrite(&aptr[i], sizeof(Account), 1, fptr);
 				break;

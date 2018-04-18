@@ -11,7 +11,7 @@
 void deposit(Account *aptr){
 
 	int input, count=0;
-	double deposit;
+	float deposit;
 
 	fptr= fopen("accounts.dat", "rb+");
 	printf("Account Number for Deposit: ");
@@ -23,11 +23,11 @@ void deposit(Account *aptr){
 			count++;
 
 			printf("Account Number: %d/n", aptr[i].accId);
-			printf("Account Owner:  %s %s %s", &aptr[i].fName, &aptr[i].mName, &aptr[i].lName);
+			printf("Account Owner:  %s %s %s", aptr[i].fName, aptr[i].mName, aptr[i].lName);
 			printf("Account Balance: $%.2f\n",aptr[i].accBal);
 			printf("Enter Deposit Amount: ");
-
 			scanf("%f", &deposit);
+
 			aptr[i].accBal += deposit;
 			printf("Deposit added");
 			printf("Account Balance: $%.2f", aptr[i].accBal);

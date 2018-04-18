@@ -8,7 +8,7 @@
 
 int main()
 {
-	Account accounts[50];
+	Account accounts[SIZE];
 	int menu = 0, choice;
 	Account *aptr = accounts;
 

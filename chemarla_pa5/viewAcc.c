@@ -5,6 +5,7 @@
 
 #include "accStruct.h"
 #include "ams.h"
+#include "ctype.h"
 
 void viewAcc(Account *aptr){
 
@@ -12,12 +13,16 @@ void viewAcc(Account *aptr){
 	for (int i = 0; i < 51; i++){
 		fread(&aptr[i], sizeof(Account), 1, fptr);
 
-		if(aptr[0].accId < 100000 || aptr[0].accId > 999999){
-			printf("Account not found. \n");
+		if((aptr[0].accId < 100000) || (aptr[0].accId > 999999)){
+			printf("Accounts not found. \n");
 			fclose(fptr);
 			break;
 		}
-		else if(aptr[i].accId >= 100000 || aptr[i].accId <= 999999){
+		else if(!isdigit(aptr[i].accId)|| aptr[i].accID == 0 || aptr[i].accId <= 99999 ||aptr[i].accId >= 1000000)
+		{
+			continue;
+		}
+		else if(aptr[i].accId >= 100000 && aptr[i].accId <= 999999){
 			printf("*******************\n");
 			printf("Account Number: %d \n", aptr[i].accId);
 			printf("Account Owner: %s %s %s\n", aptr[i].fName, aptr[i].mName,aptr[i].lName);

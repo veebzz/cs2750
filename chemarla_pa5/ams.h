@@ -1,7 +1,7 @@
 #ifndef _AMS_H_
 #define _AMS_H_
 
-#define MAX 50
+#define SIZE 50
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,5 +12,7 @@
 #include "viewAcc.h"
 #include "addAccount.h"
 #include "remAccount.h"
+
+FILE *fptr;
 
 #endif
