@@ -17,7 +17,7 @@ void balInquiry(Account *aptr){
 	fptr = fopen("accounts.dat", "rb+");
 	//fopen check
 	if(fptr==NULL){
-		 printf("Error opening accounts.dat")
+		 printf("Error opening accounts.dat");
 		 exit (1);
 	}
 

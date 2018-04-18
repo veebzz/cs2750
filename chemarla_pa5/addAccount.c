@@ -7,11 +7,12 @@
 #include "ams.h"
 #include "addAccount.h"
 #include "stdio.h"
+#include "accStruct.h"
 
 void addAccount(Account *aptr)
 {
 	int input;
-	char fName,mName,lName;
+	char fName[25],mName[25],lName[25];
 	float accBal;
 	FILE *fptr;
 
@@ -44,15 +45,15 @@ void addAccount(Account *aptr)
 				//First name input
 				aptr[i].accId= input;
 				printf("\nFirst Name: ");
-				sscanf("%s", &fName);
+				scanf("%s", fName);
 				strcpy(aptr[i].fName, fName);
 				//Middle name input
 				printf("\nMiddle Name: ");
-				sscanf("%s", &mName);
+				scanf("%s", mName);
 				strcpy(aptr[i].mName, mName);
 				//Last name input
 				printf("\nLast Name: ");
-				sscanf("%s", &lName);
+				scanf("%s", lName);
 				strcpy(aptr[i].lName, lName);
 				//Account balance input
 				printf("\nAccount Name: ");

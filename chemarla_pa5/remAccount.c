@@ -25,7 +25,7 @@ void remAccount(Account *aptr){
 			fwrite( &aptr[i], sizeof(Account),1, fptr);
 		}
 		printf("Account not found.\n");
-		return 0;
+		exit (0);
 	}
 
 	for(int i = 0; i <51; i++){
