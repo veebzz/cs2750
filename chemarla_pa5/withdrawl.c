@@ -9,18 +9,22 @@
 
 void withdrawl(Account *aptr){
 
-	int input, count=0;
+	int input;
 	float withdrawl;
 
 	fptr= fopen("accounts.dat", "rb+");
+	//fopen check
+	
+	if(fptr==NULL){
+		printf("Error opening accounts.dat");
+                exit (1);
+   	    }
 	printf("Enter account number for withdrawl: ");
 
 	scanf("%d", &input);
 	for (int i = 0; i <51 ; i++){
 		fread(&aptr[i], sizeof(Account), 1, fptr);
 		if(aptr[i].accId == input){
-			count++;
-
 			printf("Account Number: %d/n", aptr[i].accId);
 			printf("Account Owner:  %s %s %s", aptr[i].fName, aptr[i].mName, aptr[i].lName);
 			printf("Account Balance: $%.2f\n",aptr[i].accBal);
@@ -41,12 +45,6 @@ void withdrawl(Account *aptr){
 			fclose(fptr);
 			break;
 		}
-	}
-
-	if(count == 0){
-	printf("Account not found");
-	fclose(fptr);
-	}
-	
+	}	
 }
 

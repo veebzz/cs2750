@@ -9,8 +9,13 @@
 
 void viewAcc(Account *aptr){
 
-	fptr = fopen("accounts.dat", "rb+");
-	for (int i = 0; i < 51; i++){
+	fptr = fopen("accounts.dat", "rb");
+	//fopen Check
+	if(fptr==NULL){
+		  printf("Error opening accounts.dat");
+	  	  exit (1);
+	 }
+	for (int i = 0; i < 50; i++){
 		fread(&aptr[i], sizeof(Account), 1, fptr);
 
 		if((aptr[0].accId < 100000) || (aptr[0].accId > 999999)){
@@ -18,10 +23,10 @@ void viewAcc(Account *aptr){
 			fclose(fptr);
 			break;
 		}
-		else if(!isdigit(aptr[i].accId)|| aptr[i].accID == 0 || aptr[i].accId <= 99999 ||aptr[i].accId >= 1000000)
-		{
-			continue;
-		}
+	//	else if(!isdigit(aptr[i].accId)|| aptr[i].accID == 0 || aptr[i].accId <= 99999 ||aptr[i].accId >= 1000000)
+	//	{
+	//		continue;
+	//	}
 		else if(aptr[i].accId >= 100000 && aptr[i].accId <= 999999){
 			printf("*******************\n");
 			printf("Account Number: %d \n", aptr[i].accId);

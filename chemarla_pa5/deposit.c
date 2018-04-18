@@ -14,6 +14,12 @@ void deposit(Account *aptr){
 	float deposit;
 
 	fptr= fopen("accounts.dat", "rb+");
+	//fopen check
+	if(fptr == NULL){
+		printf("Error opening accounts.dat");
+		exit(1);
+	}
+
 	printf("Account Number for Deposit: ");
 
 	scanf("%d", &input);

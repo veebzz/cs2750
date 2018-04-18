@@ -16,7 +16,10 @@ void addAccount(Account *aptr)
 	FILE *fptr;
 
 	fptr = fopen("accounts.dat", "wb");
-	if (fptr);
+	if(fptr ==NULL){
+		printf("Error opening accounts.dat");
+		exit (1);
+	}
 	for (int i=0; i < 51; i++){
 		
 		if(aptr[i].accId == 0){

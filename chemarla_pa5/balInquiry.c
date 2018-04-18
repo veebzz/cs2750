@@ -15,6 +15,13 @@ void balInquiry(Account *aptr){
 	scanf("%d", &input);
 
 	fptr = fopen("accounts.dat", "rb+");
+	//fopen check
+	if(fptr==NULL){
+		 printf("Error opening accounts.dat")
+		 exit (1);
+	}
+
+
 	for(int i = 0; i < 51; i++){
 		fread(&aptr[i], sizeof(Account), 1, fptr);
 		if(aptr[i].accId == input){

@@ -11,6 +11,10 @@ void remAccount(Account *aptr){
 	int input;
 
 	fptr= fopen("accounts.dat", "wb+");
+	if(fptr==NULL){
+	 	 printf("Error opening accounts.dat");
+		 exit (1);
+	}
 
 	printf("Enter the account number to delete: \n");
 	scanf("%d", &input);
