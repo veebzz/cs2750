@@ -8,7 +8,8 @@ $(TARGET1): $(OBJ1)
 
 runsim.o: runsim.c
 	$(CC) $(CFLAGS) -c runsim.c
-
+testsim.o: testsim.c
+	$(CC) $(CFLAGS) -c testsim.c
 
 
 clean:
