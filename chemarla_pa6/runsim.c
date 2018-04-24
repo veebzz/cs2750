@@ -13,14 +13,17 @@ int main (int argc, char *argv[]){
 	int pr_limit;
 	int pr_count;
 
+	//check if user entered two arguments
 	if (argc != 2){
 		fprintf(stderr, "Usage: %s processes \n", argv[0]);
 		return 1;
 	}
-	//pr_limi- maximum number of children allowed to execute at a time
+
+	//pr_limit maximum number of children allowed to execute at a time
 	pr_limit = atoi(argv[1]);
 	pr_count = 0;
 	
+	//use fgets to open up to MAX BUFFER ?? 
 	for(i = 0; i < n; i ++)
 		if((childpid = fork()) <= 0)
 			break;
