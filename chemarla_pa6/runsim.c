@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 
 int main (int argc, char *argv[]){
 	pid_t childpid = 0;
@@ -15,7 +16,7 @@ int main (int argc, char *argv[]){
 	int pr_count= 0;
 	int status = 0;
 	char fArr[15];
-
+	int i = 0;
 	//check if user entered two arguments
 	if (argc != 2){
 		fprintf(stderr, "Usage: %s processes \n", argv[0]);
@@ -27,11 +28,16 @@ int main (int argc, char *argv[]){
 
 
 	// if count is limit wait for  child to finish
-	for(i = 0; i < n; i ++){
-		if((childpid = fork()) <= 0){
+	for(i = 1; i < pr_limit; i ++){
+		if((childpid = fork()) <= 0)
 			break;
+	
+	//while((wpid = wait(&status)) > 0);
+		if(childpid = waitpid(-1, &status, WNOHANG)> 0){
+			printf("Child %d terminated\n", childpid);
+			pr_count--;
+		}
 	}
-	while((wpid = wait(&status)) > 0);
 	//fgets command line up to MAX_BUF char
 	fgets(fArr, 15, stdin);
 
