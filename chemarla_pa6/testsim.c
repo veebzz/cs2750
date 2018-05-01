@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	sscanf(argv[2], "%d", &n);
 	
 	for(int i = n; i > 0; i--){
-		printf("[Repeat: %d] Process: %d is sleeping for %d seconds\n",i,getpid(),sec);
+		printf("Process %d [Repeat: %d]  sleeping for %d seconds\n",getpid(),i,sec);
 		sleep(sec);
 	}
 

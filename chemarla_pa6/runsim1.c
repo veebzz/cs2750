@@ -29,11 +29,11 @@ int main (int argc, char *argv[]){
 	//pr_limit maximum number of children allowed to execute at a time
 	pr_limit = atoi(argv[1]);
 	//display testing.data commands to see if fgets works
-//	while(fgets(fArr, MAX_BUF -1, stdin)){
-//		printf("%s\n", fArr);
-//	}
+	while(fgets(fArr, MAX_BUF -1, stdin)){
+		printf("%s\n", fArr);
+	}
 	//main loop	
-	while(fgets(&fArr, MAX_BUF -1, stdin !=NULL))
+	while(fgets(fArr, MAX_BUF -1, stdin !=NULL))
 	{
 		//if prrcount = prlimit wat for child to finish an ddecrement pr_count
 		if(pr_count == pr_limit)
@@ -43,16 +43,16 @@ int main (int argc, char *argv[]){
 		}
 		
 		// fork a child
-	//	pr_count++;
+		pr_count++;
 		if((childpid = fork())){
 
 			system(fArr);
 		}
 		//throw erro if fork fails
-	//	if(childpid < 0){
-	//		perror("child has failed to fork");
-	//		return 1;
-	//	}
+		if(childpid < 0){
+			perror("child has failed to fork");
+			return 1;
+		}
 
 		
 		if(childpid = waitpid(-1, &status, WNOHANG)> 0){
