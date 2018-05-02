@@ -1,5 +1,6 @@
 /*testsim.c*/
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char *argv[])
 {
@@ -20,8 +21,8 @@ int main(int argc, char *argv[])
 		sleep(sec);
 	}
 
-	printf("Child Process: %d terminated\n",getpid());
+	//printf("Child Process: %d terminated\n",getpid());
 	
-	//printf("Child Process ID = %d \n", getpid());
+	
 	return sec;
 }
